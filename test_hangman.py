@@ -29,6 +29,16 @@ Guessed letters : e l x
 Remaining turns : 7
 """
     assert actual_status == expected_status
+
+
+def test_play_round_correct_guess():
+    guesses = ['e','l','x']
+    ret, success = hangman.play_round('elephant', guesses, 'p', 8)
+    assert ret == 7 
+    assert guesses == ['e', 'l', 'x', 'p'] 
+    assert success == False
+
     
+
     
     

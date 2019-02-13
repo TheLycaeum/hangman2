@@ -22,17 +22,13 @@ def test_get_masked_word():
     assert hangman.get_masked_word('elephant', ['e', 'l', 'p', 'h', 'a', 'n', 't',]) == 'elephant'
 
     
-    
-    
-    
-# def test_get_status():
-#     actual_status = hangman.get_status('elephant', ['x','e','l'], 'q', 7)
-#     expected_status = """Secret word : ele*****
-# Guessed letters : e l q x
-# Remaining turns : 6
-#     """
-
-#     assert actual_status == expected_status
+def test_get_status():
+    actual_status = hangman.get_status('elephant', ['x','e','l'], 7)
+    expected_status = """Secret word : ele*****
+Guessed letters : e l x
+Remaining turns : 7
+"""
+    assert actual_status == expected_status
     
     
     

@@ -26,6 +26,15 @@ def get_masked_word(word, guesses):
             ret.append("*")
     return ''.join(ret)
         
+
+def get_status(secret_word, guesses, remaining_turns):
+    return """Secret word : {}
+Guessed letters : {}
+Remaining turns : {}
+""".format(get_masked_word(secret_word, guesses),
+           ' '.join(sorted(guesses)),
+           remaining_turns)
+
     
 
 def main():
@@ -34,7 +43,7 @@ def main():
     while True:
         letter = input("Enter a letter ")
         remaining_turns, success = play_round(secret_word, guesses, letter, remaining_turns)
-        print (get_status(secret_word, guesses, letter, remaining_turns))
+        print (get_status(secret_word, guesses, remaining_turns))
         if remaining_turns == 0:
             print ("The secret word was {}".format(secret_word))
             break

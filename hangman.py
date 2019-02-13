@@ -16,3 +16,35 @@ def get_secret_word(word_file="/usr/share/dict/words"):
             good_words.append(i)
     return random.choice(good_words)
         
+
+def get_masked_word(word, guesses):
+    ret = []
+    for i in word:
+        if i in guesses:
+            ret.append(i)
+        else:
+            ret.append("*")
+    return ''.join(ret)
+        
+    
+
+def main():
+    secret_word = get_secret_word()
+    guesses = []
+    while True:
+        letter = input("Enter a letter ")
+        remaining_turns, success = play_round(secret_word, guesses, letter, remaining_turns)
+        print (get_status(secret_word, guesses, letter, remaining_turns))
+        if remaining_turns == 0:
+            print ("The secret word was {}".format(secret_word))
+            break
+        if success:
+            print ('You did it!')
+            break
+
+
+if __name__ == "__main__":
+    main()
+
+            
+        

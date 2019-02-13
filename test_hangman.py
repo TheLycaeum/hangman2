@@ -46,6 +46,13 @@ def test_play_round_wrong_guess():
     assert guesses == ['e', 'l', 'x', 'j'] 
     assert success == False
 
+def test_play_round_repeat():
+    guesses = ['e','l','x']
+    ret, success = hangman.play_round('elephant', guesses, 'x', 8)
+    assert ret == 8
+    assert guesses == ['e', 'l', 'x'] 
+    assert success == False
+
     
 
     

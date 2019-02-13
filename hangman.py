@@ -36,8 +36,11 @@ Remaining turns : {}
            remaining_turns)
 
 def play_round(secret_word, guesses, guess, remaining_turns):
-    guesses.append(guess)
-    return remaining_turns - 1, False
+    if guess in guesses:
+        return remaining_turns, False
+    else:
+        guesses.append(guess)
+        return remaining_turns - 1, False
     
 
 def main():
